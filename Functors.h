@@ -5,8 +5,13 @@ using namespace std;
 
 class search_name
 {
+	Car obj;
 public:
+	search_name() = default;
+	search_name(Car obj_P) : obj{ obj_P } { };
+
 	bool operator()(Car& obj1, Car& obj2) { return obj1.brand == obj2.brand; }
+	bool operator()(Car& obj1) { return obj1.brand == obj.brand; }
 };
 
 class search_price

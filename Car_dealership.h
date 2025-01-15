@@ -33,15 +33,15 @@ public:
 
 	void add(Car obj) { cars.push_back(obj); }
 
-	/*void remove(initializer_list<Car> init_list)
+	void remove(initializer_list<Car> init_list)
 	{
 		for (Car buff : init_list)
 		{
-			cars.remove(buff);
+			cars.erase(find_if(cars.begin(), cars.end(), search_name(buff)));
 		}
 	}
 
-	void remove(Car obj) { cars.remove(obj); }*/
+	void remove(Car obj) { cars.erase(find_if(cars.begin(), cars.end(), search_name(obj))); }
 
 	void sort_by_smth(int by_what = sort_BY_BRAND)
 	{
