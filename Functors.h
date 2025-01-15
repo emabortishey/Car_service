@@ -5,26 +5,42 @@ using namespace std;
 
 class search_name
 {
+	string obj;
 public:
-	bool operator()(Car& obj1, Car& obj2) { return obj1.brand == obj2.brand; }
+	search_name() = default;
+	search_name(string obj_P) : obj{ obj_P } { };
+
+	bool operator()(Car& obj1) { return obj1.brand == obj; }
 };
 
 class search_price
 {
+	int obj;
 public:
-	bool operator()(Car& obj1, Car& obj2) { return obj1.price == obj2.price; }
+	search_price() = default;
+	search_price(int obj_P) : obj{ obj_P } { };
+
+	bool operator()(Car& obj1) { return obj1.price == obj; }
 };
 
 class search_year
 {
+	int obj;
 public:
-	bool operator()(Car& obj1, Car& obj2) { return obj1.year == obj2.year; }
+	search_year() = default;
+	search_year(int obj_P) : obj{ obj_P } { };
+
+	bool operator()(Car& obj1) { return obj1.year == obj; }
 };
 
 class search_volume
 {
+	int obj;
 public:
-	bool operator()(Car& obj1, Car& obj2) { return obj1.volume == obj2.volume; }
+	search_volume() = default;
+	search_volume(int obj_P) : obj{ obj_P } { };
+
+	bool operator()(Car& obj1) { return obj1.volume == obj; }
 };
 
 class search_car
@@ -42,23 +58,23 @@ public:
 class sort_name
 {
 public:
-	bool operator()(Car& obj1, Car& obj2) { return obj1.brand < obj2.brand; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.brand > obj2.brand; }
 };
 
 class sort_price
 {
 public:
-	bool operator()(Car& obj1, Car& obj2) { return obj1.price < obj2.price; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.price > obj2.price; }
 };
 
 class sort_year
 {
 public:
-	bool operator()(Car& obj1, Car& obj2) { return obj1.year < obj2.year; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.year > obj2.year; }
 };
 
 class sort_volume
 {
 public:
-	bool operator()(Car& obj1, Car& obj2) { return obj1.volume < obj2.volume; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.volume > obj2.volume; }
 };

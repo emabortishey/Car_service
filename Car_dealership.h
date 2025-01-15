@@ -4,7 +4,6 @@
 
 using namespace std;
 
-enum search_by { search_BY_BRAND = 1, search_BY_PRICE, search_BY_YEAR, search_BY_VOLUME };
 enum sort_by { sort_BY_BRAND = 1, sort_BY_PRICE, sort_BY_YEAR, sort_BY_VOLUME };
 
 class Car_dealership
@@ -43,7 +42,7 @@ public:
 
 	void remove(Car obj) { cars.erase(find_if(cars.begin(), cars.end(), search_car(obj))); }
 
-	void sort_by_smth(int by_what = sort_BY_BRAND)
+	void sort_by_smth(int by_what)
 	{
 		switch (by_what)
 		{
@@ -53,16 +52,52 @@ public:
 		}
 		case sort_BY_PRICE:
 		{
-			sort(cars.begin(), cars.end(), sort_name());
+			sort(cars.begin(), cars.end(), sort_price());
 		}
 		case sort_BY_YEAR:
 		{
-			sort(cars.begin(), cars.end(), sort_name());
+			sort(cars.begin(), cars.end(), sort_year());
 		}
 		case sort_BY_VOLUME:
 		{
-			sort(cars.begin(), cars.end(), sort_name());
+			sort(cars.begin(), cars.end(), sort_volume());
 		}
 		}
+	}
+
+	vector<Car> search_by_name(string name_P)
+	{
+		vector<Car> found_cars(cars.size());
+		
+		copy_if(cars.begin(), cars.end(), found_cars.begin(), search_name()); 	
+			
+		return found_cars;
+	}
+
+	vector<Car> search_by_price(int price_P)
+	{
+		vector<Car> found_cars(cars.size());
+
+		copy_if(cars.begin(), cars.end(), found_cars.begin(), search_price());
+
+		return found_cars;
+	}
+
+	vector<Car> search_by_year(int year_P)
+	{
+		vector<Car> found_cars(cars.size());
+
+		copy_if(cars.begin(), cars.end(), found_cars.begin(), search_year());
+
+		return found_cars;
+	}
+
+	vector<Car> search_by_volume(int volume_P)
+	{
+		vector<Car> found_cars(cars.size());
+
+		copy_if(cars.begin(), cars.end(), found_cars.begin(), search_volume());
+
+		return found_cars;
 	}
 };
