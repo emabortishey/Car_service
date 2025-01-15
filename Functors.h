@@ -1,51 +1,53 @@
 #pragma once
 #include "Header.h"
 
+using namespace std;
+
 class search_name
 {
 public:
-	bool operator()(string name1, string name2) { return name1 == name2; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.brand == obj2.brand; }
 };
 
 class search_price
 {
 public:
-	bool operator()(int price1, int price2) { return price1 == price2; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.price == obj2.price; }
 };
 
 class search_year
 {
 public:
-	bool operator()(int year1, int year2) { return year1 == year2; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.year == obj2.year; }
 };
 
 class search_volume
 {
 public:
-	bool operator()(int volume1, int volume2) { return volume1 == volume2; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.volume == obj2.volume; }
 };
 
 
 class sort_name
 {
 public:
-	bool operator()(string name1, string name2) { return name1 > name2; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.brand < obj2.brand; }
 };
 
 class sort_price
 {
 public:
-	bool operator()(int price1, int price2) { return price1 > price2; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.price < obj2.price; }
 };
 
 class sort_year
 {
 public:
-	bool operator()(int year1, int year2) { return year1 > year2; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.year < obj2.year; }
 };
 
 class sort_volume
 {
 public:
-	bool operator()(int volume1, int volume2) { return volume1 > volume2; }
+	bool operator()(Car& obj1, Car& obj2) { return obj1.volume < obj2.volume; }
 };

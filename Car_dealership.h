@@ -1,9 +1,15 @@
 #include "Header.h"
+#include "Car.h"
+#include "Functors.h"
+
+using namespace std;
+
+enum search_by { search_BY_BRAND = 1, search_BY_PRICE, search_BY_YEAR, search_BY_VOLUME };
+enum sort_by { sort_BY_BRAND = 1, sort_BY_PRICE, sort_BY_YEAR, sort_BY_VOLUME };
 
 class Car_dealership
 {
-	list<Car> cars; 
-
+	vector<Car> cars;
 public:
 	Car_dealership() = default;
 	Car_dealership(initializer_list<Car> init_list) : cars{ init_list } { };
@@ -27,7 +33,7 @@ public:
 
 	void add(Car obj) { cars.push_back(obj); }
 
-	void remove(initializer_list<Car> init_list)
+	/*void remove(initializer_list<Car> init_list)
 	{
 		for (Car buff : init_list)
 		{
@@ -35,7 +41,10 @@ public:
 		}
 	}
 
-	void remove(Car obj) { cars.remove(obj); }
+	void remove(Car obj) { cars.remove(obj); }*/
 
-
+	void sort_by_smth(int by_what = sort_BY_BRAND)
+	{
+		sort(cars.begin(), cars.end(), sort_name());
+	}
 };

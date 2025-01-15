@@ -1,4 +1,7 @@
+#include "Header.h"
 #include "Car_dealership.h"
+
+using namespace std;
 
 int main()
 {
@@ -10,7 +13,11 @@ int main()
 
 	test.show_all_cars();
 
-	test.remove({ "MEOW", 2, 3, 4 });
+	//test.remove({ "MEOW", 2, 3, 4 });
+
+	cout << "\n\nSECOND:\n\n";
+
+	test.sort_by_smth();
 
 	test.show_all_cars();
 
