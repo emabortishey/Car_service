@@ -37,14 +37,32 @@ public:
 	{
 		for (Car buff : init_list)
 		{
-			cars.erase(find_if(cars.begin(), cars.end(), search_name(buff)));
+			cars.erase(find_if(cars.begin(), cars.end(), search_car(buff)));
 		}
 	}
 
-	void remove(Car obj) { cars.erase(find_if(cars.begin(), cars.end(), search_name(obj))); }
+	void remove(Car obj) { cars.erase(find_if(cars.begin(), cars.end(), search_car(obj))); }
 
 	void sort_by_smth(int by_what = sort_BY_BRAND)
 	{
-		sort(cars.begin(), cars.end(), sort_name());
+		switch (by_what)
+		{
+		case sort_BY_BRAND:
+		{
+			sort(cars.begin(), cars.end(), sort_name());
+		}
+		case sort_BY_PRICE:
+		{
+			sort(cars.begin(), cars.end(), sort_name());
+		}
+		case sort_BY_YEAR:
+		{
+			sort(cars.begin(), cars.end(), sort_name());
+		}
+		case sort_BY_VOLUME:
+		{
+			sort(cars.begin(), cars.end(), sort_name());
+		}
+		}
 	}
 };
