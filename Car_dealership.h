@@ -37,6 +37,12 @@ public:
 		}
 	}
 
-
+	void add(initializer_list<Car> init_list)
+	{
+		for (auto buff : init_list)
+		{
+			cars.push_back(buff);
+		}
+	}
 
 };
