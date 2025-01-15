@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <list>
 
 using namespace std;
 
@@ -19,7 +20,10 @@ class Car_dealership
 
 	friend Car;
 
-	vector<Car> Cars; 
+	list<Car> Cars; 
 
 public:
+	Car_dealership() = default;
+	Car_dealership(initializer_list<Car> init_list) : Cars{ init_list } { };
+
 };
