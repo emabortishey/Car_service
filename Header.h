@@ -1,5 +1,5 @@
-#pragma once
-#pragma once
+// заголовочный файл с подключением нужных библиотек
+
 #pragma once
 #include <iostream>
 #include <algorithm>

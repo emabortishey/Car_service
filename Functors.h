@@ -3,11 +3,16 @@
 
 using namespace std;
 
+// заголовочный файл со всеми функторами 
+// которые используются в методах класса car realershit
 class search_name
 {
+	// т.к. копи иф, который я использовала
+	// для метода поиска, принимает только 
+	// унарные функторы, я добавила атрибут
 	string obj;
 public:
-	search_name() = default;
+	search_name() = delete;
 	search_name(string obj_P) : obj{ obj_P } { };
 
 	bool operator()(Car& obj1) { return obj1.get_brand() == obj; }
@@ -17,7 +22,7 @@ class search_price
 {
 	int obj;
 public:
-	search_price() = default;
+	search_price() = delete;
 	search_price(int obj_P) : obj{ obj_P } { };
 
 	bool operator()(Car& obj1) { return obj1.get_price() == obj; }
@@ -27,7 +32,7 @@ class search_year
 {
 	int obj;
 public:
-	search_year() = default;
+	search_year() = delete;
 	search_year(int obj_P) : obj{ obj_P } { };
 
 	bool operator()(Car& obj1) { return obj1.get_year() == obj; }
@@ -37,12 +42,18 @@ class search_volume
 {
 	int obj;
 public:
-	search_volume() = default;
+	search_volume() = delete;
 	search_volume(int obj_P) : obj{ obj_P } { };
 
 	bool operator()(Car& obj1) { return obj1.get_volume() == obj; }
 };
 
+// функтор для поиска машины, подходящей
+// по всем параметрам, созданный для метода удаления
+// т.к. в классе веткора нет метода ремув,
+// я использовала метод эрейс, в который передавала
+// полученый с помощью алгоритма файнд иф итератор
+// а в алгоритм файнд иф я передавала этот функтор
 class search_car
 {
 	Car obj;
