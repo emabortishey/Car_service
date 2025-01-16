@@ -49,18 +49,26 @@ public:
 		case sort_BY_BRAND:
 		{
 			sort(cars.begin(), cars.end(), sort_name());
+
+			break;
 		}
 		case sort_BY_PRICE:
 		{
 			sort(cars.begin(), cars.end(), sort_price());
+
+			break;
 		}
 		case sort_BY_YEAR:
 		{
 			sort(cars.begin(), cars.end(), sort_year());
+
+			break;
 		}
 		case sort_BY_VOLUME:
 		{
 			sort(cars.begin(), cars.end(), sort_volume());
+
+			break;
 		}
 		}
 	}

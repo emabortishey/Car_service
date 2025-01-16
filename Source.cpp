@@ -21,12 +21,12 @@ int main()
 
 	test.show_all_cars();
 
-	cout << "\n\nSECOND2:\n\n";
+	//cout << "\n\nSECOND2:\n\n";
 
-	for (auto buff : test.search_by_name("meow"))
-	{
-		buff.show_car();
-	}
+	//for (auto buff : test.search_by_name("meow"))
+	//{
+	//	buff.show_car();
+	//}
 
 	return 0;
 }
