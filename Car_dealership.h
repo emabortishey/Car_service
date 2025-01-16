@@ -4,7 +4,7 @@
 
 using namespace std;
 
-enum sort_by { sort_BY_BRAND = 1, sort_BY_PRICE, sort_BY_YEAR, sort_BY_VOLUME };
+enum sort_by { BY_BRAND = 1, BY_PRICE, BY_YEAR, BY_VOLUME };
 
 class Car_dealership
 {
@@ -46,25 +46,25 @@ public:
 	{
 		switch (by_what)
 		{
-		case sort_BY_BRAND:
+		case BY_BRAND:
 		{
 			sort(cars.begin(), cars.end(), sort_name());
 
 			break;
 		}
-		case sort_BY_PRICE:
+		case BY_PRICE:
 		{
 			sort(cars.begin(), cars.end(), sort_price());
 
 			break;
 		}
-		case sort_BY_YEAR:
+		case BY_YEAR:
 		{
 			sort(cars.begin(), cars.end(), sort_year());
 
 			break;
 		}
-		case sort_BY_VOLUME:
+		case BY_VOLUME:
 		{
 			sort(cars.begin(), cars.end(), sort_volume());
 

@@ -4,9 +4,6 @@
 using namespace std;
 
 enum menu { ADD_CAR = 1, DELETE_CAR, SHOW_CARS, SORT_BY, SEARCH_BY };
-enum under_menu1 { BY_BRAND = 1, BY_PRICE, BY_YEAR, BY_VOLUME };
-enum under_menu2 { ADD_SINGLE = 1, ADD_LIST };
-enum under_menu3 { DELETE_SINGLE = 1, DELETE_LIST };
 
 int main()
 {
@@ -16,45 +13,23 @@ int main()
 
 	test.add({ {"addcheck", 3000,8,4}, {"somename2", 1500,6,6}, {"ilovecats", 1,4,3} });
 
-	test.show_all_cars();
-
-	//test.remove({ "MEOW", 2, 3, 4 });
-
-	cout << "\n\nSECOND:\n\n";
-
-	test.sort_by_smth(sort_BY_YEAR);
-
-	test.show_all_cars();
-
-	cout << "\n\nSECOND2:\n\n";
-
-	for (auto buff : test.search_by_name("meow"))
-	{
-		buff.show_car();
-	}
-
 	int user_choice = 0;
+	int buff_p;
 	string buff_string;
+	Car buff_car;
+	vector<Car> buff_car_vector;
 
-	switch (user_choice)
+	cout << "\nВведите число в зависимости от вашего выбора:\n1. Добавить авто\n2. Удалить авто\n3. Вывести все авто\n4. Сортировать по критерию\n5. Найти по критерию\n";
+
+	cin >> user_choice;
+	
+	while (user_choice != 0)
 	{
-		cout << "\nВведите число в зависимости от вашего выбора:\n1. Добавить авто\n2. Удалить авто\n3. Вывести все авто\n4. Сортировать по критерию\n5. Найти по критерию\n";
-
-		cin >> user_choice;
-
-	case ADD_CAR:
-	{
-		cout << "\n\nВы желаете удалить еденичный элемент (1) или список элементов (2)? ";
-
-		cin >> user_choice;
-
 		switch (user_choice)
 		{
-		case ADD_SINGLE:
-		{
-			
-		}
-		case ADD_LIST:
+
+
+		case ADD_CAR:
 		{
 			cout << "\n\nСколько машин вы бы хотели добавить? ";
 
@@ -62,27 +37,131 @@ int main()
 
 			for (int i = 0; i < user_choice; i++)
 			{
+				cout << "\n\nВведите марку авто: ";
 
+				cin >> buff_string;
+				buff_car.set_brand(buff_string);
+
+				cout << "\nВведите цену: ";
+
+				cin >> buff_p;
+				buff_car.set_price(buff_p);
+
+				cout << "\nВведите год выпуска: ";
+
+				cin >> buff_p;
+				buff_car.set_year(buff_p);
+
+				cout << "\nВведите объем двигателя: ";
+
+				cin >> buff_p;
+				buff_car.set_volume(buff_p);
+
+				test.add(buff_car);
 			}
+
+			break;
+		}
+		case DELETE_CAR:
+		{
+			cout << "\n\nСколько машин вы бы хотели удалить? ";
+
+			cin >> user_choice;
+
+			for (int i = 0; i < user_choice; i++)
+			{
+				cout << "\n\nВведите марку авто: ";
+
+				cin >> buff_string;
+				buff_car.set_brand(buff_string);
+
+				cout << "\nВведите цену: ";
+
+				cin >> buff_p;
+				buff_car.set_price(buff_p);
+
+				cout << "\nВведите год выпуска: ";
+
+				cin >> buff_p;
+				buff_car.set_year(buff_p);
+
+				cout << "\nВведите объем двигателя: ";
+
+				cin >> buff_p;
+				buff_car.set_volume(buff_p);
+
+				test.remove(buff_car);
+			}
+
+			break;
+		}
+		case SHOW_CARS:
+		{
+			test.show_all_cars();
+
+			break;
+		}
+		case SORT_BY:
+		{
+			cout << "\nВыберите критерий сортировки\n\n1. Марка\n2. Цена\n3. Год выпуска\n4. Объем двигателя";
+
+			cin >> user_choice;
+
+			test.sort_by_smth(user_choice);
+
+			break;
+		}
+		case SEARCH_BY:
+		{
+			cout << "\nВыберите критерий поиска:\n\n1. Марка\n2. Цена\n3. Год выпуска\n4. Объем двигателя";
+
+			cin >> user_choice;
+
+			switch (user_choice)
+			{
+			case BY_BRAND:
+			{
+				cout << "\nВведите строку: ";
+
+				cin >> buff_string;
+
+				test.search_by_name(buff_string);
+			}
+			case BY_PRICE:
+			{
+				cout << "\nВведите цену: ";
+
+				cin >> buff_p;
+
+				test.search_by_price(buff_p);
+			}
+			case BY_YEAR:
+
+			{
+				cout << "\nВведите год: ";
+
+				cin >> buff_p;
+
+				test.search_by_year(buff_p);
+			}
+			case BY_VOLUME:
+			{
+				cout << "\nВведите объем двигателя: ";
+
+				cin >> buff_p;
+
+				test.search_by_volume(buff_p);
+
+				break;
+			}
+			}
+
 		}
 		}
-	}
-	case DELETE_CAR:
-	{
 
-	}
-	case SHOW_CARS:
-	{
+		cout << "\nВведите число в зависимости от вашего выбора:\n1. Добавить авто\n2. Удалить авто\n3. Вывести все авто\n4. Сортировать по критерию\n5. Найти по критерию\n";
 
-	}
-	case SORT_BY:
-	{
-
-	}
-	case SEARCH_BY:
-	{
-
-	}
+		cin >> user_choice;
 	}
 
 	return 0;
